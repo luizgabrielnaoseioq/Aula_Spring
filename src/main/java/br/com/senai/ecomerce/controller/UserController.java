@@ -28,4 +28,9 @@ public class UserController {
         return userRepository.findAll();
     }
 
+    // Pegar usuario pelo seu ID
+    @GetMapping("/{id}")
+    public User getUserById(@PathVariable Long id){
+        return userRepository.findById(id).orElse(null);
+    }
 }
