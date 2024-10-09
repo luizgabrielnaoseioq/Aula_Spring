@@ -3,12 +3,11 @@ package br.com.senai.ecomerce.controller;
 import br.com.senai.ecomerce.entity.User;
 import br.com.senai.ecomerce.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-@RestController //supora apenas dados
+import java.util.List;
+
+@RestController //suporta apenas dados
 @RequestMapping("/user") // localhost:8080/user
 public class UserController {
 
@@ -21,4 +20,12 @@ public class UserController {
     public User createUsuario(@RequestBody User user) {
         return userRepository.save(user);
     }
+
+    //listar todos os usuarios do banco de dados
+    @GetMapping
+    public List<User> getAllUser(){
+        // SELECT * FROM User
+        return userRepository.findAll();
+    }
+
 }
