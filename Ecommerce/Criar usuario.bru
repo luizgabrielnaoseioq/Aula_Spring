@@ -5,7 +5,15 @@ meta {
 }
 
 post {
-  url: http://loclhost:8080/user
-  body: none
+  url: http://localhost:8080/user
+  body: json
   auth: none
+}
+
+body:json {
+  {
+    "name":"root",
+    "email":"roteando",
+    "password":"root"
+  }
 }
